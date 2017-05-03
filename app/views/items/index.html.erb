@@ -1,0 +1,9 @@
+<h1>Current Available Produce!</h1>
+
+<ul>
+<% @items.each do |item| %>
+	<li><%= item.name %></li>
+	<li><%= item.price %></li>
+	<li><%= item.quantity %></li></br>
+<% end %>
+</ul>
