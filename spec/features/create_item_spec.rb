@@ -10,6 +10,7 @@ describe "creating a new item" do
 		fill_in "Name", with: "tomato"
 		fill_in "Quantity", with: "500"
 		fill_in "Price", with: "1.49"
+		fill_in "Description", with: "wow"
 
 		click_button "Create Item"
 		expect(current_path).to eq(item_path(Item.last))
