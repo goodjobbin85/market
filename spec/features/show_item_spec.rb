@@ -3,9 +3,7 @@ require 'rails_helper'
 describe "visiting item show page" do 
 
 	it "should display item info" do 
-		item = Item.create(name: "tomato",
-						   price: 1.23,
-						   quantity: 45)
+		item = Item.create(item_attributes)
 
 		visit item_path(item)
 

@@ -3,9 +3,7 @@ require 'rails_helper'
 describe "navigating between index and show page" do 
 
 	it "should link to show page from index page" do 
-		item = Item.create(name: "orange",
-						   price: 1.49,
-						   quantity: 6989)
+		item = Item.create(item_attributes)
 
 		visit items_url
 		click_link(item.name)
@@ -13,9 +11,7 @@ describe "navigating between index and show page" do
 	end
 
 	it "should link to index page from show page" do 
-		item = Item.create(name: "orange",
-						   price: 1.49,
-						   quantity: 6989)
+		item = Item.create(item_attributes)
 
 		visit item_path(item)
 		click_link("All Items")
