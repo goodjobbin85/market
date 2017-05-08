@@ -2,6 +2,7 @@
 <h3>Price per pound: <%= number_to_currency(@item.price) %></h3>
 <h3>Quantity: <%= @item.quantity %></h3>
 <h3>Description: <%= @item.description %></h3>
+<h3>In Season?: <%= @item.in_season %></h3>
 
 <%= link_to "All Items", items_path %> |
 <%= link_to "Edit Item", edit_item_path(@item) %> | 

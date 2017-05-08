@@ -6,15 +6,18 @@ describe "visiting homepage" do
 		item1 = Item.create(name: "orange",
 							price: 1.49,
 							quantity: 6989,
-							description: "wow")
+							description: "wow",
+							in_season: "true")
 		item2 = Item.create(name: "kiwi",
 							price: 0.80,
 							quantity: 911,
-							description: "very organic")
+							description: "very organic",
+							in_season: "true")
 		item3 = Item.create(name: "strawberry",
 							price: 1.80,
 							quantity: 846,
-							description: "rich")
+							description: "rich",
+							in_season: "true")
 
 		visit items_url
 		#expect(page).to include(item.name)

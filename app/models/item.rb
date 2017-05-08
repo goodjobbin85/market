@@ -4,5 +4,5 @@ class Item < ApplicationRecord
 	validates :quantity, presence: true, numericality: { only_integer: true }
 	validates :description, presence: true
 
-	
+	scope :in_season, -> { where(in_season: true) }
 end

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	
 	def index
-		@items = Item.all
+		@items = Item.in_season
 	end
 
 	def show
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:name, :quantity, :price, :description)
+		params.require(:item).permit(:name, :quantity, :price, :description, :in_season)
 	end
 
 	
