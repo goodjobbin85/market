@@ -3,4 +3,5 @@
 <h3>Quantity: <%= @item.quantity %></h3>
 
 <%= link_to "All Items", items_path %> |
-<%= link_to "Edit Item", edit_item_path(@item) %>
+<%= link_to "Edit Item", edit_item_path(@item) %> | 
+<%= link_to "Delete Item", item_path(@item), method: :delete, data: { confirm: "Are you sure you want to remove this item?" }  %>
