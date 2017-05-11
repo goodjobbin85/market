@@ -17,10 +17,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .navbar {
- 	float: right;
- 	display: inline-block;
- }
+
 
   #list {
 	clear: both;
@@ -29,6 +26,11 @@
 	li {
 		list-style: none;
 	}
+ }
+
+ footer {
+ 	text-align: center;
+ 	margin-top: 60%;
  }
 
  

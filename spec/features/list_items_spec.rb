@@ -21,7 +21,6 @@ describe "visiting homepage" do
 
 		visit items_url
 		#expect(page).to include(item.name)
-		expect(page).to have_text("Current Available Produce!")
 		expect(page).to have_text(item1.name)
 		expect(page).to have_text(item2.name)
 		expect(page).to have_text(item3.name)
