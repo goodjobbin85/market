@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	
 	def index
-		@items = Item.in_season
+		@items = Item.all
 	end
 
 	def show
@@ -24,8 +24,11 @@ class ItemsController < ApplicationController
 
 	def create 
 		@item = Item.new(item_params)
-		@item.save
-		redirect_to @item
+		if @item.save
+			redirect_to @item
+		else 
+			render :new
+		end
 	end
 
 	def destroy 

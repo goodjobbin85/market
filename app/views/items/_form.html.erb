@@ -1,19 +1,26 @@
 <%= form_for(@item) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name, autofocus: true %></br>
+	
+	<%= @item.errors.full_messages.to_sentence %>
+	
+	<fieldset>
+		<%= f.label :name %>
+		<%= f.text_field :name, autofocus: true %></br>
 
-	<%= f.label :price %>
-	<%= f.text_field :price %></br>
+		<%= f.label :price %>
+		<%= f.text_field :price %></br>
 
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %></br>
+		<%= f.label :quantity %>
+		<%= f.text_field :quantity %></br>
 
-	<%= f.label :description %>
-	<%= f.text_area :description, cols: 40, rows: 4 %></br>
+		<%= f.label :description %>
+		<%= f.text_area :description, cols: 40, rows: 4 %></br>
 
-	<%= f.label :in_season, "In Season" %>
-	<%= f.check_box :in_season %></br>
+		<%= f.label :in_season, "In Season" %>
+		<%= f.check_box :in_season %></br>
 
-	<%= f.submit %>
+		<%= f.submit %></br>
+		</br>
+		<%= link_to "Home", items_path, class: 'btn btn-primary' %>
+	</fieldset>
 
 <% end %>
