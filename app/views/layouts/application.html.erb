@@ -13,41 +13,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </head>
 
-  <header>
-  <a class="navbar-brand float-left" href="#">The Market</a>
-  <div class="container-fluid">
-
-  	<ul class="nav float-right">
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Home</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">About</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Products</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Location</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Register</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Log In</a>
-	  </li>
-	</ul>
-	</div>
-
-  </header>
+  <%= render 'header' %>
 
   <body>
     <%= yield %>
   </body>
 
-  <footer>
-  	<p>
-  		www.themarket.com  |  312-401-4570  | Beverly  |  Oak Lawn  |  Evergreen Park
-  	</p>
-  </footer>
+  <%= render 'footer' %>
+  
 </html>
