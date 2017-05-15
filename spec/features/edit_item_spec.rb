@@ -14,5 +14,6 @@ describe "editing an item" do
 		click_button 'Update Item'
 		expect(current_path).to eq(item_path(item))
 		expect(page).to have_text("7")
+		expect(page).to have_text("Item Successfully Updated!")
 	end
 end

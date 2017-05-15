@@ -8,5 +8,6 @@ describe "deleting an item" do
 		click_link 'Delete Item'
 		expect(current_path).to eq(items_path)
 		expect(page).not_to have_text(item.name)
+		expect(page).to have_text("Item Successfully Deleted!")
 	end
 end

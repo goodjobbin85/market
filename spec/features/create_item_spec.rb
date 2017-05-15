@@ -16,5 +16,6 @@ describe "creating a new item" do
 		click_button "Create Item"
 		expect(current_path).to eq(item_path(Item.last))
 		expect(page).to have_text("1.49")
+		expect(page).to have_text("Item Successfully Created!")
 	end
 end

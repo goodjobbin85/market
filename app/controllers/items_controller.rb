@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
 	def update 
 		@item = Item.find(params[:id])
 		if @item.update(item_params)
+			flash[:notice] = "Item Successfully Updated!"
 			redirect_to item_path(@item)
 		else
 			render :edit
@@ -28,7 +29,7 @@ class ItemsController < ApplicationController
 	def create 
 		@item = Item.new(item_params)
 		if @item.save
-			redirect_to @item
+			redirect_to @item, notice: "Item Successfully Created!"
 		else 
 			render :new
 		end
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
 	def destroy 
 		@item = Item.find(params[:id])
 		@item.destroy
-		redirect_to items_path
+		redirect_to items_path, alert: "Item Successfully Deleted!"
 	end
 
 	private
