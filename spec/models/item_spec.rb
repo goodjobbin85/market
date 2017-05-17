@@ -57,5 +57,26 @@ describe "An Item" do
 
 	end
 
+	it "has many reviews" do 
+		item = Item.new(item_attributes)
+
+		review1 = item.reviews.new(review_attributes)
+		review2 = item.reviews.new(review_attributes)
+
+		expect(item.reviews).to include(review1)
+		expect(item.reviews).to include(review2)
+
+	end 
+
+	it "deletes associated reviews" do 
+		item = Item.create(item_attributes)
+		item.reviews.create(review_attributes)
+
+		expect {
+			item.destroy
+		}.to change(Review, :count).by(-1)
+
+	end 
+
 
 end

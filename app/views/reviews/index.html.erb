@@ -1,0 +1,19 @@
+<h1>Reviews for <%= link_to @item.name, @item %></h1>
+
+<ol>
+	<% @reviews.each do |review| %>
+		<li>
+			<p>
+				<%= pluralize(review.stars, 'star') %> by <%= review.name %>:
+			</p>
+
+			<p>
+				<%= review.comment %>
+			</p>
+			<p>
+				Created <%= time_ago_in_words(review.created_at) %> ago 
+			</p>
+		</li>
+	<% end %>
+</ol>
+

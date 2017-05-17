@@ -18,3 +18,11 @@ def user_attributes(overrides = {})
 	}.merge(overrides)
 end
 
+def review_attributes(overrides = {})
+	{
+		name: "natalie",
+		comment: "best damn apples I ever had!",
+		stars: 4
+	}.merge(overrides)
+end
+

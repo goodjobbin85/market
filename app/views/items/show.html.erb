@@ -4,6 +4,8 @@
 <h3>Description: <%= @item.description %></h3>
 <h3>In Season?: <%= @item.in_season %></h3>
 
+<h3><%= link_to pluralize(@item.reviews.size, "review"), item_reviews_path(@item) %></h3>
+
 <%= link_to "All Items", items_path %> |
 <%= link_to "Edit Item", edit_item_path(@item) %> | 
 <%= link_to "Delete Item", item_path(@item), method: :delete, data: { confirm: "Are you sure you want to remove this item?" }  %>

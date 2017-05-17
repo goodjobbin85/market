@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  
  root 'items#index'
- resources :items
+ resources :items do 
+ 	resources :reviews
+ end
  #get "/items", to: "items#index"
  #get "/items/:id", to: "items#show", as: "item"
  #get "/items/:id/edit", to: "items#edit", as: "edit_item"
