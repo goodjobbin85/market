@@ -14,7 +14,9 @@ def user_attributes(overrides = {})
 		last_name: "dubiel",
 		phone: "312-401-4570",
 		address: "9323 S. Springfield",
-		email: "blockkids08@hotmail.com"
+		email: "blockkids08@hotmail.com",
+		password: "secret",
+		password_confirmation: "secret"
 	}.merge(overrides)
 end
 
