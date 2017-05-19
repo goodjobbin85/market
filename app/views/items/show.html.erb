@@ -5,6 +5,7 @@
 <h3>In Season?: <%= @item.in_season %></h3>
 
 <h3><%= link_to pluralize(@item.reviews.size, "review"), item_reviews_path(@item) %></h3>
+<h3><%= link_to "Write Review", new_item_review_path(@item) %></h3>
 
 <%= link_to "All Items", items_path %> |
 <%= link_to "Edit Item", edit_item_path(@item) %> | 
