@@ -1,0 +1,47 @@
+<%= form_for(@user) do |f| %>
+	<%= render "shared/errors", object: @user %>
+	<fieldset>
+		<ol>
+			<li>
+				<%= f.label :first_name %>
+				<%= f.text_field :first_name %>
+			</li>
+
+			<li>
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name %>
+			</li>
+
+			<li>
+				<%= f.label :address %>
+				<%= f.text_field :address %>
+			</li>
+
+			<li>
+				<%= f.label :phone %>
+				<%= f.text_field :phone %>
+			</li>
+
+			<li>
+				<%= f.label :email %>
+				<%= f.email_field :email %>
+			</li>
+
+			<li>
+				<%= f.label :password %>
+				<%= f.password_field :password, placeholder: '********' %>
+			</li>
+
+			<li>
+				<%= f.label :password_confirmation, 'Confirm Password' %>
+				<%= f.password_field :password_confirmation, placeholder: '********' %>
+			</li>
+		</ol>
+			<% if @user.new_record? %>
+				<%= f.submit "Create Account" %>
+			<% else %>
+				<%= f.submit "Update Account" %>
+			<% end %>
+	</fieldset>
+
+<% end %>

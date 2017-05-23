@@ -10,4 +10,8 @@ Rails.application.routes.draw do
  #patch "/items/:id", to: "items#update"
 
  resources :users
+
+ get "/signup" => 'users#new'
+
+ resource :session
 end
