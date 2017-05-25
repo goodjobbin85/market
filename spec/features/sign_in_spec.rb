@@ -21,10 +21,14 @@ describe "signing a user in" do
 		fill_in "Email", with: user.email
 		fill_in "Password", with: user.password
 
-		click_link "Sign In"
+		click_button "Sign In"
 
 		expect(current_path).to eq(user_path(user))
-		expect(page).to have_text("Welcome back, #{user.name}!")
+		expect(page).to have_text("Welcome back, #{user.first_name}!")
+
+		expect(page).to have_link(user.first_name)
+		expect(page).not_to have_link('Sign In')
+		expect(page).not_to have_link('Sign Up')
 	end
 
 	it "does not sign in invalid email/password combo" do 
@@ -35,10 +39,14 @@ describe "signing a user in" do
 		click_link "Sign In"
 
 		fill_in "Email", with: user.email
-		fill_in "Password", with: "dkjfdlkfjl"
+		fill_in "Password", with: "no match"
 
-		click_link "Sign In"
+		click_button "Sign In"
 
-		expect(page).to have_text("Invalid")
+		expect(page).to have_text("Invalid email/password combination!")
+
+		expect(page).not_to have_link(user.first_name)
+		expect(page).to have_link('Sign In')
+		expect(page).to have_link('Sign Up')
 	end 
 end
