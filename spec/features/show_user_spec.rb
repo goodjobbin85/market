@@ -5,6 +5,7 @@ describe "viewing a user's profile page" do
 	it "shows the users details" do 
 		user1 = User.create!(user_attributes)
 
+		sign_in(user1)
 		visit user_url(user1)
 
 		expect(page).to have_text(user1.first_name)
