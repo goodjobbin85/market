@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe "editing an item" do 
 
+	before do 
+		admin = User.create!(user_attributes(admin: true))
+		sign_in(admin)
+	end
+
 	it "should show edit form and updated info" do 
 		item = Item.create(item_attributes)
 

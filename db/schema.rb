@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519142553) do
+ActiveRecord::Schema.define(version: 20170528143623) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price"
     t.integer  "quantity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.text     "description"
-    t.boolean  "in_season"
+    t.boolean  "in_season",   default: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 20170519142553) do
     t.string   "phone"
     t.string   "address"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.         "password"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

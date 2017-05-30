@@ -2,7 +2,13 @@ require 'rails_helper'
 
 describe "creating a new item" do 
 
+	before do 
+		admin = User.create!(user_attributes(admin: true))
+		sign_in(admin)
+	end
+	
 	it "should create new item and redirect to new item show page" do 
+
 		visit items_url
 		click_link "Add New Item"
 		expect(current_path).to eq(new_item_path)
