@@ -100,6 +100,23 @@ describe "A User" do
 		user = User.new(password: "secret")
 		expect(user.password_digest.present?).to eq(true)
 	end
+
+	it "has reviews" do
+		user = User.new(user_attributes)
+		item1 = Item.new(item_attributes(name: "tomato")) 
+		item2 = Item.new(item_attributes(name: "cucumber"))
+
+		review1 = item1.reviews.new(stars: 5, comment: "yummmy!! very delicious!")
+		review1.user = user
+		review1.save!
+
+		review2 = item2.reviews.new(stars: 2, comment: "not too bad but could be better")
+		review2.user = user 
+		review2.save!
+
+		expect(user.reviews).to include(review1)
+		expect(user.reviews).to include(review2)
+	end
 end 
 
 describe "Authenticate" do 
