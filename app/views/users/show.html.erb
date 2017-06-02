@@ -1,6 +1,23 @@
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
 <h3><%= mail_to(@user.email) %></h3>
 
+<% if @reviews.any? %>
+	<h3>Reviews </h3>
+	<ol>
+		<% @reviews.each do |review| %>
+			<li>
+				<%= link_to review.item.name, review.item %>
+				<%= pluralize(review.stars, 'star') %>
+				<%= time_ago_in_words(review.created_at) %> ago
+				<p>
+					<%= review.comment %>
+				</p>
+			</li>
+		<% end %>
+	</ol>
+
+<% end %>
+
 <% if current_user?(@user) %>
 	<div>
 		<%= link_to "Edit Account", edit_user_path(@user), class: 'button' %> |

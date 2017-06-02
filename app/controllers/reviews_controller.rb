@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-
-before_action :set_review
+	before_action :require_signin
+	before_action :set_review
 
 	def index 
 		@reviews = @item.reviews
@@ -12,6 +12,7 @@ before_action :set_review
 
 	def create 
 		@review = @item.reviews.new(review_params)
+		@review.user = current_user
 		if @review.save
 			redirect_to item_reviews_path(@item),
 					notice: "Thanks for your review!"
@@ -27,7 +28,7 @@ before_action :set_review
 	end
 
 	def review_params
-		params.require(:review).permit(:name, :comment, :stars)
+		params.require(:review).permit(:comment, :stars)
 	end
 
 end

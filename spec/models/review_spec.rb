@@ -15,12 +15,6 @@ describe "A Review" do
 		expect(review.valid?).to eq(true) 
 	end
 
-	it "requires a name" do 
-		review = Review.new(name: "")
-		review.valid?
-		expect(review.errors[:name].any?).to eq(true)
-	end
-
 	it "requires a comment" do 
 		review = Review.new(comment: "")
 		review.valid?

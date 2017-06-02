@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20170531151601) do
     t.string   "name"
     t.decimal  "price"
     t.integer  "quantity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.text     "description"
-    t.boolean  "in_season"
+    t.boolean  "in_season",   default: false
   end
 
   create_table "reviews", force: :cascade do |t|
