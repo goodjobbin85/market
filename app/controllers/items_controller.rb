@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
+		@fans = @item.fans
+		
+		if current_user
+			@current_favorite = current_user.favorites.find_by(item_id: @item.id)
+		end
 	end
 
 	def edit 

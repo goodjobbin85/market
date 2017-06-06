@@ -75,8 +75,19 @@ describe "An Item" do
 		expect {
 			item.destroy
 		}.to change(Review, :count).by(-1)
-
 	end 
 
+	it "has fans" do 
+		item = Item.new(item_attributes)
+
+		fan1 = User.new(user_attributes(email: "td1729@hotmail.com"))
+		fan2 = User.new(user_attributes(email: "kdubiel@google.com"))
+
+		item.favorites.new(user: fan1)
+		item.favorites.new(user: fan2)
+
+		expect(item.fans).to include(fan1)
+		expect(item.fans).to include(fan2)
+	end
 
 end

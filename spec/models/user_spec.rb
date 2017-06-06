@@ -117,6 +117,18 @@ describe "A User" do
 		expect(user.reviews).to include(review1)
 		expect(user.reviews).to include(review2)
 	end
+
+	it "has favorite items" do 
+		user = User.new(user_attributes)
+		item1 = Item.new(item_attributes(name: "cucumber"))
+		item2 = Item.new(item_attributes(name: "tomatos"))
+
+		user.favorites.new(item: item1)
+		user.favorites.new(item: item2)
+
+		expect(user.favorite_items).to include(item1)
+		expect(user.favorite_items).to include(item2)
+	end
 end 
 
 describe "Authenticate" do 
