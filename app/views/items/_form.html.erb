@@ -18,6 +18,10 @@
 		<%= f.label :in_season, "In Season" %>
 		<%= f.check_box :in_season %></br>
 
+		<li>
+			<%= f.collection_check_boxes(:source_ids, Source.all, :id, :name) %>
+		</li>
+
 		<%= f.submit %></br>
 		</br>
 		<%= link_to "Home", items_path, class: 'btn btn-primary' %>

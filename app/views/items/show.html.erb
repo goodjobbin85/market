@@ -7,6 +7,13 @@
 <h3><%= link_to pluralize(@item.reviews.size, "review"), item_reviews_path(@item) %></h3>
 <h3><%= link_to "Write Review", new_item_review_path(@item) %></h3>
 
+<h3>Responsibly sourced from the following farms:</h3>
+<ul>
+	<% @sources.each do |source| %>
+		<li><%= source.name %></li>
+	<% end %>
+</ul>
+
 <p>
 	<%= pluralize(@fans.size, 'fan') %>
 </p>

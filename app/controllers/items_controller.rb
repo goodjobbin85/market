@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
 	def show
 		@item = Item.find(params[:id])
 		@fans = @item.fans
-		
+		@sources = @item.sources
+
 		if current_user
 			@current_favorite = current_user.favorites.find_by(item_id: @item.id)
 		end
@@ -52,7 +53,8 @@ class ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:name, :quantity, :price, :description, :in_season)
+		params.require(:item).permit(:name, :quantity, :price, 
+									:description, :in_season, source_ids: [])
 	end
 
 	

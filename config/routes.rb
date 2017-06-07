@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :sources
  root 'items#index'
  resources :items do 
  	resources :reviews

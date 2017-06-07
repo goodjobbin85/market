@@ -3,6 +3,8 @@ class Item < ApplicationRecord
 	has_many :reviews, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 	has_many :fans, through: :favorites, source: :user
+	has_many :farmers, dependent: :destroy
+	has_many :sources, through: :farmers
 
 	validates :name, presence: true, uniqueness: true
 	validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
