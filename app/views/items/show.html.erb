@@ -1,3 +1,5 @@
+<% content_for(:title, @item.name) %>
+
 <h2><%= @item.name.upcase %></h2>
 <h3>Price per pound: <%= number_to_currency(@item.price) %></h3>
 <h3>Quantity: <%= @item.quantity %></h3>
@@ -7,26 +9,28 @@
 <h3><%= link_to pluralize(@item.reviews.size, "review"), item_reviews_path(@item) %></h3>
 <h3><%= link_to "Write Review", new_item_review_path(@item) %></h3>
 
+<% content_for :side do %>
 <h3>Responsibly sourced from the following farms:</h3>
-<ul>
-	<% @sources.each do |source| %>
-		<li><%= source.name %></li>
-	<% end %>
-</ul>
-
-<p>
-	<%= pluralize(@fans.size, 'fan') %>
-</p>
-
-<% if @fans.any? %>
-	<h3>Fans</h3>
 	<ul>
-		<% @fans.each do |user| %>
-			<li>
-				<%= link_to user.first_name, user %>
-			</li>
+		<% @sources.each do |source| %>
+			<li><%= source.name %></li>
 		<% end %>
 	</ul>
+
+
+	<% if @fans.any? %>
+		<h3>Fans</h3>
+		<p>
+			<%= pluralize(@fans.size, 'fan') %>
+		</p>
+		<ul>
+			<% @fans.each do |user| %>
+				<li>
+					<%= link_to user.first_name, user %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
 <% end %>
 
 <% if current_user %>

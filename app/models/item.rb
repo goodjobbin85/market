@@ -13,4 +13,7 @@ class Item < ApplicationRecord
 	validates :description, presence: true, length: { minimum: 21 }
 
 	scope :in_season, -> { where(in_season: true) }
+	scope :max_quantity, -> { where('quantity > 500').order(quantity: :desc)}
+	scope :low_quantity, -> { where('quantity <= 499').order(quantity: :desc)}
+
 end
