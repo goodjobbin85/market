@@ -1,6 +1,19 @@
 
 <aside>
-
 	<%= content_for(:side) %>
+
+	<ul>
+		<li>
+			<%= link_to 'In Season Items', filtered_items_path(:in_season) %>
+		</li>
+
+		<li>
+			<%= link_to 'Abundant Items', filtered_items_path(:max_quantity) %>
+		</li>
+
+		<li>
+			<%= link_to 'Running Low Items', filtered_items_path(:low_quantity) %>
+		</li>
+	</ul>
 
 </aside>

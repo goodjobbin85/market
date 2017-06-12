@@ -4,7 +4,16 @@ class ItemsController < ApplicationController
 	before_action :require_admin, except: [:index, :show]
 
 	def index
-		@items = Item.min_quantity
+		case params[:scope]
+		when 'in_season'
+			@items = Item.in_season
+		when 'max_quantity'
+			@items = Item.max_quantity
+		when 'low_quantity'
+			@items = Item.low_quantity
+		else 
+			@items = Item.all
+		end
 	end
 
 	def show
